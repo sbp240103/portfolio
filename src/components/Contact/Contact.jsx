@@ -1,10 +1,11 @@
-import React from 'react'
-import './Contact.css'
-import theme_pattern from '../../assets/theme_pattern.png'
-import mail from '../../assets/mail.jpg'
-import linkedin from '../../assets/linkedin.png'
-import github from '../../assets/github.jpg'
-import leetcode from '../../assets/leetcode.png'
+import React from 'react';
+import './Contact.css';
+import theme_pattern from '../../assets/theme_pattern.png';
+import mail from '../../assets/mail.jpg';
+import linkedin from '../../assets/linkedin.png';
+import github from '../../assets/github.jpg';
+import leetcode from '../../assets/leetcode.png';
+
 const Contact = () => {
   const [result, setResult] = React.useState("");
 
@@ -31,44 +32,61 @@ const Contact = () => {
       setResult(data.message);
     }
   };
+
   return (
     <div id='contact' className='contact'>
-        <div className="contact-title">
-            <h1>Get in touch</h1>
-            <img src={theme_pattern} alt="" />
-        </div>
-        <div className="contact-section">
-          <div className="contact-left">
-          
-            <h1>Let's talk</h1>
-            <p>I'm currently available to take on new projects, so feel free to send me message about anything that you want me to work on. You can contact anytime.</p>
-            <div className="contact-details">
-              <div className="contact-detail">
-                <img src={mail} alt="" />
-              </div>
-              <div className="contact-detail">
-                <img src={linkedin} alt="" />
-              </div>
-              <div className="contact-detail">
-                <img src={github} alt="" />
-              </div>
-              <div className="contact-detail">
-                <img src={leetcode} alt="" />
-              </div>
+      <div className="contact-title">
+        <h1>Get in touch</h1>
+        <img src={theme_pattern} alt="" />
+      </div>
+
+      <div className="contact-section">
+        <div className="contact-left">
+          <h1>Let's talk</h1>
+          <p>
+            I'm currently available to take on new projects, so feel free to send me a message 
+            about anything you want me to work on. You can contact me anytime.
+          </p>
+
+          <div className="contact-details">
+            <div className="contact-detail">
+              <a href="mailto:mbbsbnpv@gamil.com" target="_blank" rel="noopener noreferrer">
+                <img src={mail} alt="Email" />
+              </a>
+            </div>
+            <div className="contact-detail">
+              <a href="https://www.linkedin.com/in/pushkar-singh-5095362b6/" target="_blank" rel="noopener noreferrer">
+                <img src={linkedin} alt="LinkedIn" />
+              </a>
+            </div>
+            <div className="contact-detail">
+              <a href="https://github.com/sbp240103" target="_blank" rel="noopener noreferrer">
+                <img src={github} alt="GitHub" />
+              </a>
+            </div>
+            <div className="contact-detail">
+              <a href="https://leetcode.com/u/sbp2003/" target="_blank" rel="noopener noreferrer">
+                <img src={leetcode} alt="LeetCode" />
+              </a>
             </div>
           </div>
-          <form onSubmit={onSubmit} className="contact-right">
-            <label htmlFor="">Your Name</label>
-            <input type="text" placeholder='Enter your name' name='name' />
-            <label htmlFor="Your Email"></label>
-            <input type="email" placeholder='Enter your email' name='email'/>
-            <label htmlFor="">Write your message here</label>
-            <textarea name="message" rows="8" placeholder='Enter your message'></textarea>
-            <button type='submit' className="contact-submit">Submit now</button>
-          </form>
         </div>
-    </div>
-  )
-}
 
-export default Contact
+        <form onSubmit={onSubmit} className="contact-right">
+          <label>Your Name</label>
+          <input type="text" placeholder='Enter your name' name='name' required />
+
+          <label>Your Email</label>
+          <input type="email" placeholder='Enter your email' name='email' required />
+
+          <label>Write your message here</label>
+          <textarea name="message" rows="8" placeholder='Enter your message' required></textarea>
+
+          <button type='submit' className="contact-submit">Submit now</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
